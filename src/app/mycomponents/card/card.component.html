@@ -1,0 +1,39 @@
+<div class="background"></div>
+
+<div class="spinner-border center" role="status" *ngIf="!user">
+  <span class="sr-only">Loading...</span>
+</div>
+
+<div class="outer-div" *ngIf="user">
+  <div class="inner-div">
+    <div class="front">
+      <div class="front__bkg-photo"></div>
+      <div class="front__face-photo">
+        <img [src]="user.picture?.large" />
+      </div>
+      <div class="front__text">
+        <h3 class="front__text-header">
+          {{
+            user.name?.title + " " + user.name?.first + " " + user.name?.last
+          }}
+        </h3>
+        <p class="front__text-para">
+          <fa-icon [icon]="faEnvelope"></fa-icon>{{user.email}}
+        </p>
+        <p class="front__text-para">
+          <fa-icon [icon]="faPhone"></fa-icon> {{user.phone}}
+        </p>
+
+        <span class="front__text-hover" (click)="reload()">Reload</span>
+      </div>
+    </div>
+    <!-- <div class="back">
+      <div class="social-media-wrapper">
+        <a href="#" class="social-icon"><i class="fab fa-codepen" aria-hidden="true"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-github-square" aria-hidden="true"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-square" aria-hidden="true"></i></a>
+         <a href="#" class="social-icon"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      </div>
+    </div> -->
+  </div>
+</div>
